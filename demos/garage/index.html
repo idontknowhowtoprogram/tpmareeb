@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Garage Service Estimator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 font-sans p-6">
+    <div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+      <h1 class="text-2xl font-bold mb-4">Garage Service Estimator</h1>
+      <p class="text-sm text-gray-600 mb-2">
+        <strong>Tip:</strong> You can either enter your 17-character VIN to
+        auto-fill your car details, or manually enter them below.
+      </p>
+      <!-- VIN input and decode -->
+      <label for="vin" class="block mb-2">Enter VIN Number:</label>
+      <div class="flex mb-4 space-x-2">
+        <input
+          type="text"
+          id="vin"
+          placeholder="17-character VIN"
+          class="flex-grow p-2 border rounded"
+        />
+        <button
+          type="button"
+          onclick="decodeVin()"
+          class="bg-indigo-600 text-white px-4 rounded hover:bg-indigo-700"
+        >
+          Decode VIN
+        </button>
+      </div>
+
+      <!-- Manual/decoded fields -->
+      <label for="year" class="block mb-1 font-semibold">Year:</label>
+      <input
+        type="text"
+        id="year"
+        placeholder="Vehicle Year"
+        class="w-full mb-3 p-2 border rounded"
+        oninput="validateYear()"
+      />
+
+      <label for="modelName" class="block mb-1 font-semibold"
+        >Model Name:</label
+      >
+      <input
+        type="text"
+        id="modelName"
+        placeholder="Vehicle Model"
+        class="w-full mb-3 p-2 border rounded"
+      />
+
+      <label for="bodyClass" class="block mb-1 font-semibold"
+        >Body Class:</label
+      >
+      <input
+        type="text"
+        id="bodyClass"
+        placeholder="Body Type"
+        class="w-full mb-3 p-2 border rounded"
+      />
+
+      <label for="engineSize" class="block mb-1 font-semibold"
+        >Engine Size (L):</label
+      >
+      <select id="cylinders" class="w-full mb-3 p-2 border rounded">
+        <option value="" disabled selected>Select Engine Type</option>
+        <option value="I3">Inline-3 (I3)</option>
+        <option value="I4">Inline-4 (I4)</option>
+        <option value="V6">V6</option>
+        <option value="V8">V8</option>
+        <option value="V10">V10</option>
+        <option value="V12">V12</option>
+        <option value="Electric">Electric Motor</option>
+      </select>
+
+      <label for="fuelType" class="block mb-1 font-semibold">Fuel Type:</label>
+      <input
+        type="text"
+        id="fuelType"
+        placeholder="Fuel Type"
+        class="w-full mb-3 p-2 border rounded"
+      />
+
+      <label for="transmission" class="block mb-1 font-semibold"
+        >Transmission:</label
+      >
+      <select id="transmission" class="w-full mb-3 p-2 border rounded">
+        <option value="" disabled selected>Select transmission</option>
+        <option value="Automatic">Automatic</option>
+        <option value="Manual">Manual</option>
+        <option value="CVT">CVT</option>
+        <option value="Semi-Automatic">Semi-Automatic</option>
+        <option value="Dual-Clutch">Dual-Clutch</option>
+      </select>
+
+      <label for="plantCountry" class="block mb-1 font-semibold">
+        Manufactured In:
+      </label>
+      <select id="plantCountry" class="w-full mb-6 p-2 border rounded">
+        <option value="" disabled selected>Select country</option>
+        <option value="Japan">Japan</option>
+        <option value="United States">United States</option>
+        <option value="Germany">Germany</option>
+        <option value="South Korea">South Korea</option>
+        <option value="China">China</option>
+      </select>
+
+      <!-- Car Make select -->
+      <label for="car" class="block mb-2 font-semibold"
+        >Select Your Car Make:</label
+      >
+      <select id="car" class="w-full p-2 border rounded mb-6">
+        <option value="" disabled selected>Select make/model</option>
+        <option value="toyota">Toyota</option>
+        <option value="nissan">Nissan</option>
+        <option value="bmw">BMW</option>
+      </select>
+
+      <!-- Services checkboxes -->
+      <div id="services" class="mb-6">
+        <p class="font-semibold mb-2">Select Services:</p>
+        <label class="block mb-1">
+          <input type="checkbox" value="oil" /> Oil Change (AED 100)
+        </label>
+        <label class="block mb-1">
+          <input type="checkbox" value="ac" /> AC Repair (AED 150)
+        </label>
+        <label class="block mb-1">
+          <input type="checkbox" value="brake" /> Brake Repair (AED 120)
+        </label>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex space-x-2 mb-4">
+        <button
+          onclick="calculateEstimate()"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex-1"
+        >
+          Get Estimate
+        </button>
+        <button
+          onclick="resetForm()"
+          class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400 flex-1"
+        >
+          Reset
+        </button>
+      </div>
+
+      <!-- Result and WhatsApp button -->
+      <div
+        id="result"
+        class="whitespace-pre-line font-semibold min-h-[80px] mb-4"
+      ></div>
+
+      <button
+        id="whatsappBtn"
+        class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 hidden w-full"
+        onclick="sendWhatsApp()"
+      >
+        Send Estimate on WhatsApp
+      </button>
+    </div>
+
+    <script src="vincheck.js" defer></script>
+    <script src="whatsapp.js" defer></script>
+    <script>
+      document.getElementById("vin").addEventListener("input", () => {
+        document.getElementById("result").innerText = "";
+      });
+    </script>
+  </body>
+</html>

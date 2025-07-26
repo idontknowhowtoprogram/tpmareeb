@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FERMA - Fermented Water</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --beetroot: #8a1538;
+        --green: #4e944f;
+        --white: #ffffff;
+        --beige: #f5f0e6;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      body {
+        background-color: var(--white);
+        color: var(--beetroot);
+      }
+
+      header {
+        background-color: var(--beetroot);
+        color: var(--white);
+        padding: 5rem 2rem 3rem;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        letter-spacing: 2px;
+      }
+
+      header p {
+        font-size: 1.25rem;
+        margin-top: 1rem;
+        opacity: 0.85;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4rem 2rem;
+        gap: 2rem;
+        background-color: var(--beige);
+      }
+
+      .hero img {
+        max-width: 280px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-text {
+        max-width: 600px;
+        text-align: center;
+        font-size: 1.1rem;
+      }
+
+      .claims {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        padding: 4rem 2rem;
+        max-width: 1000px;
+        margin: auto;
+      }
+
+      .claim-box {
+        background-color: var(--green);
+        color: var(--white);
+        padding: 1.5rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .product-section {
+        text-align: center;
+        padding: 4rem 2rem;
+        background-color: var(--white);
+      }
+
+      .product-section h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-section p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .product-section button {
+        background-color: var(--beetroot);
+        color: var(--white);
+        border: none;
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .product-section button:hover {
+        background-color: #72112d;
+      }
+
+      .testimonials {
+        background-color: var(--beige);
+        padding: 4rem 2rem;
+        max-width: 1000px;
+        margin: auto;
+        text-align: center;
+      }
+
+      .testimonial {
+        margin-bottom: 2rem;
+        font-style: italic;
+        color: #4e4e4e;
+      }
+
+      .testimonial strong {
+        display: block;
+        margin-top: 0.5rem;
+        font-style: normal;
+        color: var(--beetroot);
+      }
+
+      footer {
+        background-color: var(--beetroot);
+        color: var(--white);
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>FERMA</h1>
+      <p>Fermented Water — Freshly Made in UAE</p>
+    </header>
+
+    <section class="hero">
+      <img src="placeholder-bottle.jpg" alt="Ferma Bottle" />
+      <div class="hero-text">
+        <p>
+          Discover daily wellness through nature. Ferma is your probiotic-rich,
+          100% natural fermented water made from beetroot and carrot. No sugar
+          added, only health.
+        </p>
+      </div>
+    </section>
+
+    <section class="claims">
+      <div class="claim-box">✅ Natural Probiotic</div>
+      <div class="claim-box">✅ Immunity Booster</div>
+      <div class="claim-box">✅ 0% Added Sugar</div>
+      <div class="claim-box">✅ Cold-Brewed in Small Batches</div>
+      <div class="claim-box">✅ Made Fresh in the UAE</div>
+      <div class="claim-box">✅ Vegan & Gut Friendly</div>
+    </section>
+
+    <section class="product-section">
+      <h2>Order Your Ferma</h2>
+      <p>250ml Bottle – AED 12</p>
+      <button onclick="alert('Coming soon: Add to cart feature!')">
+        Buy Now
+      </button>
+    </section>
+
+    <section class="testimonials">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial">
+        "Ferma has become my daily ritual — it tastes great and makes me feel
+        amazing!"
+        <strong>– Fatima A.</strong>
+      </div>
+      <div class="testimonial">
+        "I love how natural and fresh it is. No sugar, no nonsense. Just real
+        wellness."
+        <strong>– Rami T.</strong>
+      </div>
+      <div class="testimonial">
+        "My gut health has improved drastically after just a week of drinking
+        Ferma."
+        <strong>– Sara K.</strong>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 FERMA | Wellness in Every Sip |
+      <a href="#" style="color: var(--white); text-decoration: underline"
+        >Instagram</a
+      >
+    </footer>
+
+    <script>
+      // JS functionality can be added here
+    </script>
+  </body>
+</html>
